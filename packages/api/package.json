@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Evan Fleet <evfleet@gmail.com>",
-  "homepage": "",
   "license": "ISC",
   "main": "lib/server.js",
   "directories": {
@@ -14,9 +13,16 @@
     "lib"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "start": "ts-node src/index.ts"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "pg": "^7.7.1",
+    "reflect-metadata": "^0.1.10",
+    "typeorm": "0.2.11"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0"
   }
 }
