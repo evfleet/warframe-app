@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  redis:
+    image: redis:5.0.3
+  postgres:
+    image: postgres:11
+    environment:
+      POSTGRES_DB: "${POSTGRES_TABLE}"
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASS}"
+    ports:
+      - ${POSTGRES_PORT}:5432
+  api:
+    depends_on:
+      - redis
+      - postgres
+    build:
+      context: ./
+      dockerfile: ./packages/api/Dockerfile
+    environment:
+      PORT: ${API_PORT}
+      NODE_ENV: development
+    volumes:
+      - ./packages/api/lib:/usr/api/lib
+    ports:
+      - ${API_PORT}:3000
+    command: npm run start:dev
