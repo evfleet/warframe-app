@@ -1,7 +1,15 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+<<<<<<< HEAD
     "outDir": "./lib"
+=======
+    "target": "es2018",
+    "outDir": "./lib",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
+>>>>>>> api/dist/project-setup
   },
   "include": ["./src"]
 }
